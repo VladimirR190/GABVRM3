@@ -1,0 +1,30 @@
+.fc-event {
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 4px;
+    margin: 1px;
+}
+
+.fc-event:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.fc-toolbar-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.fc-button-primary {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+}
+
+.fc-button-primary:hover {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+}
+
+.fc-daygrid-event-dot {
+    display: none;
+}
