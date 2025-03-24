@@ -35,12 +35,12 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    protected $redirectTo = '/calendar';
+    protected $redirectTo = '/calendar/month';
 
     public function __construct()
     {
         $this->middleware('guest');
-        $this->redirectTo = route('calendar');
+        $this->redirectTo = route('calendar.view', ['view' => 'month']);
     }
 
     /**
