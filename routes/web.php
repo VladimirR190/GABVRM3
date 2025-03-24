@@ -21,3 +21,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('home');
+
+    Route::get('/calendar/{view}', [EventController::class, 'calendar'])
+        ->name('calendar.view'); // Добавляем имя маршрута
+    Route::resource('events', EventController::class);
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+
+});
+
+// Изменяем перенаправление после авторизации/регистрации
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
